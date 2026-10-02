@@ -1,2 +1,2 @@
-# gym-website
+hawargym-website
 My gym website
