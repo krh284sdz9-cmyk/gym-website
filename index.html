@@ -1,859 +1,782 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>HAWAR GYM | Train Strong. Live Strong.</title>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #080808;
-            color: white;
-            line-height: 1.6;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* NAVBAR */
-
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            padding: 20px 7%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(0,0,0,0.85);
-            backdrop-filter: blur(10px);
-        }
-
-        .logo {
-            font-size: 25px;
-            font-weight: 900;
-            letter-spacing: 2px;
-        }
-
-        .logo span {
-            color: #ff2b2b;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            font-size: 14px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #ff2b2b;
-        }
-
-        /* HERO */
-
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 100px 7% 60px;
-            background:
-                linear-gradient(90deg, rgba(0,0,0,.95), rgba(0,0,0,.45)),
-                url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1800&q=85")
-                center/cover;
-        }
-
-        .hero-content {
-            max-width: 700px;
-        }
-
-        .hero-small {
-            color: #ff2b2b;
-            font-weight: bold;
-            letter-spacing: 4px;
-            margin-bottom: 15px;
-        }
-
-        .hero h1 {
-            font-size: clamp(55px, 9vw, 110px);
-            line-height: .9;
-            margin-bottom: 25px;
-        }
-
-        .hero h1 span {
-            color: #ff2b2b;
-        }
-
-        .hero p {
-            color: #ddd;
-            font-size: 18px;
-            max-width: 550px;
-            margin-bottom: 35px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 15px 30px;
-            border-radius: 5px;
-            background: #ff2b2b;
-            color: white;
-            font-weight: bold;
-            transition: .3s;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            background: white;
-            color: black;
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 1px solid white;
-            margin-left: 10px;
-        }
-
-        /* GENERAL */
-
-        section {
-            padding: 100px 7%;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 55px;
-        }
-
-        .section-title small {
-            color: #ff2b2b;
-            letter-spacing: 3px;
-            font-weight: bold;
-        }
-
-        .section-title h2 {
-            font-size: 45px;
-            margin-top: 8px;
-        }
-
-        /* ABOUT */
-
-        .about {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .about-img {
-            height: 500px;
-            border-radius: 15px;
-            background:
-                url("https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1000&q=85")
-                center/cover;
-        }
-
-        .about-text h2 {
-            font-size: 45px;
-            margin-bottom: 20px;
-        }
-
-        .about-text h2 span {
-            color: #ff2b2b;
-        }
-
-        .about-text p {
-            color: #aaa;
-            margin-bottom: 20px;
-        }
-
-        /* PROGRAMS */
-
-        .programs {
-            background: #101010;
-        }
-
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
-
-        .card {
-            padding: 35px 25px;
-            background: #181818;
-            border: 1px solid #252525;
-            border-radius: 12px;
-            transition: .3s;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            border-color: #ff2b2b;
-        }
-
-        .card-icon {
-            font-size: 38px;
-            margin-bottom: 20px;
-        }
-
-        .card h3 {
-            margin-bottom: 12px;
-        }
-
-        .card p {
-            color: #999;
-            font-size: 14px;
-        }
-
-        /* MEMBERSHIP */
-
-        .pricing {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
-
-        .price-card {
-            background: #151515;
-            padding: 40px 30px;
-            border-radius: 15px;
-            text-align: center;
-            border: 1px solid #292929;
-        }
-
-        .price-card.featured {
-            border: 2px solid #ff2b2b;
-            transform: scale(1.04);
-        }
-
-        .price-card h3 {
-            font-size: 22px;
-            margin-bottom: 15px;
-        }
-
-        .price {
-            font-size: 45px;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-
-        .price span {
-            font-size: 14px;
-            color: #999;
-        }
-
-        .price-card ul {
-            list-style: none;
-            color: #aaa;
-            margin-bottom: 30px;
-        }
-
-        .price-card li {
-            padding: 8px;
-        }
-
-        /* TRAINERS */
-
-        .trainers {
-            background: #101010;
-        }
-
-        .trainer-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
-
-        .trainer {
-            background: #181818;
-            border-radius: 15px;
-            overflow: hidden;
-            text-align: center;
-        }
-
-        .trainer-img {
-            height: 350px;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .trainer:nth-child(1) .trainer-img {
-            background-image: url("https://images.unsplash.com/photo-1567013127542-490d757e51fc?auto=format&fit=crop&w=800&q=85");
-        }
-
-        .trainer:nth-child(2) .trainer-img {
-            background-image: url("https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=85");
-        }
-
-        .trainer:nth-child(3) .trainer-img {
-            background-image: url("https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=800&q=85");
-        }
-
-        .trainer-info {
-            padding: 25px;
-        }
-
-        .trainer-info p {
-            color: #ff2b2b;
-            font-size: 14px;
-        }
-
-        /* GALLERY */
-
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-        }
-
-        .gallery div {
-            height: 250px;
-            border-radius: 10px;
-            background-size: cover;
-            background-position: center;
-            transition: .3s;
-        }
-
-        .gallery div:hover {
-            transform: scale(1.03);
-        }
-
-        .g1 {
-            background-image: url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=85");
-        }
-
-        .g2 {
-            background-image: url("https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=800&q=85");
-        }
-
-        .g3 {
-            background-image: url("https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=800&q=85");
-        }
-
-        .g4 {
-            background-image: url("https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=800&q=85");
-        }
-
-        .g5 {
-            background-image: url("https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&w=800&q=85");
-        }
-
-        .g6 {
-            background-image: url("https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=800&q=85");
-        }
-
-        /* CONTACT */
-
-        .contact {
-            background:
-                linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.85)),
-                url("https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=1800&q=85")
-                center/cover;
-            text-align: center;
-        }
-
-        .contact h2 {
-            font-size: 55px;
-            margin-bottom: 15px;
-        }
-
-        .contact p {
-            color: #ccc;
-            margin-bottom: 30px;
-        }
-
-        /* FOOTER */
-
-        footer {
-            padding: 30px 7%;
-            background: #050505;
-            text-align: center;
-            color: #777;
-        }
-
-        footer strong {
-            color: white;
-        }
-
-        /* MOBILE */
-
-        @media (max-width: 900px) {
-
-            .nav-links {
-                display: none;
-            }
-
-            .about {
-                grid-template-columns: 1fr;
-            }
-
-            .cards {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .pricing {
-                grid-template-columns: 1fr;
-            }
-
-            .trainer-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .gallery {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .price-card.featured {
-                transform: none;
-            }
-        }
-
-        @media (max-width: 600px) {
-
-            section {
-                padding: 70px 5%;
-            }
-
-            .hero {
-                padding: 100px 5% 50px;
-            }
-
-            .hero h1 {
-                font-size: 60px;
-            }
-
-            .hero p {
-                font-size: 16px;
-            }
-
-            .btn {
-                padding: 13px 22px;
-            }
-
-            .cards {
-                grid-template-columns: 1fr;
-            }
-
-            .gallery {
-                grid-template-columns: 1fr;
-            }
-
-            .gallery div {
-                height: 220px;
-            }
-
-            .section-title h2 {
-                font-size: 35px;
-            }
-
-            .about-img {
-                height: 350px;
-            }
-
-            .contact h2 {
-                font-size: 38px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>HAWAR GYM | Train. Transform. Become.</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#080808;
+    color:#fff;
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+    padding:20px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(0,0,0,.88);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid #222;
+}
+
+.logo{
+    font-size:25px;
+    font-weight:900;
+    letter-spacing:2px;
+}
+
+.logo span{
+    color:#e50914;
+}
+
+.nav-links{
+    display:flex;
+    gap:30px;
+    list-style:none;
+}
+
+.nav-links a{
+    font-size:13px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#e50914;
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding:120px 7% 70px;
+    background:
+    linear-gradient(90deg,rgba(0,0,0,.95),rgba(0,0,0,.45)),
+    url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=2000&q=90")
+    center/cover;
+}
+
+.hero-content{
+    max-width:750px;
+}
+
+.hero-small{
+    color:#e50914;
+    font-size:14px;
+    font-weight:bold;
+    letter-spacing:5px;
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-size:clamp(55px,9vw,115px);
+    line-height:.9;
+    margin-bottom:28px;
+    font-weight:900;
+}
+
+.hero h1 span{
+    color:#e50914;
+}
+
+.hero p{
+    color:#ddd;
+    font-size:18px;
+    max-width:580px;
+    margin-bottom:35px;
+}
+
+.btn{
+    display:inline-block;
+    padding:15px 30px;
+    border-radius:5px;
+    background:#e50914;
+    color:white;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-4px);
+    background:white;
+    color:#000;
+}
+
+.btn-outline{
+    background:transparent;
+    border:1px solid white;
+    margin-left:10px;
+}
+
+section{
+    padding:100px 7%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:55px;
+}
+
+.section-title small{
+    color:#e50914;
+    letter-spacing:4px;
+    font-weight:bold;
+}
+
+.section-title h2{
+    font-size:46px;
+    margin-top:8px;
+    font-weight:900;
+}
+
+.about{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:65px;
+    align-items:center;
+}
+
+.about-img{
+    height:520px;
+    border-radius:15px;
+    background:
+    url("https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1200&q=90")
+    center/cover;
+}
+
+.about-text h2{
+    font-size:48px;
+    line-height:1;
+    margin-bottom:25px;
+}
+
+.about-text h2 span{
+    color:#e50914;
+}
+
+.about-text p{
+    color:#aaa;
+    margin-bottom:20px;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin:30px 0;
+}
+
+.stat{
+    padding:20px;
+    background:#151515;
+    border-left:3px solid #e50914;
+}
+
+.stat strong{
+    display:block;
+    font-size:28px;
+}
+
+.stat span{
+    color:#888;
+    font-size:12px;
+}
+
+.programs{
+    background:#101010;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.card{
+    padding:35px 25px;
+    background:#181818;
+    border:1px solid #292929;
+    border-radius:12px;
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    border-color:#e50914;
+}
+
+.card-icon{
+    font-size:38px;
+    margin-bottom:20px;
+}
+
+.card h3{
+    margin-bottom:12px;
+}
+
+.card p{
+    color:#999;
+    font-size:14px;
+}
+
+.pricing{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.price-card{
+    background:#151515;
+    padding:40px 30px;
+    border-radius:15px;
+    text-align:center;
+    border:1px solid #292929;
+    transition:.3s;
+}
+
+.price-card:hover{
+    transform:translateY(-8px);
+}
+
+.price-card.featured{
+    border:2px solid #e50914;
+    transform:scale(1.04);
+}
+
+.price-card h3{
+    font-size:22px;
+    margin-bottom:15px;
+}
+
+.price{
+    font-size:45px;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+.price span{
+    font-size:14px;
+    color:#999;
+}
+
+.price-card ul{
+    list-style:none;
+    color:#aaa;
+    margin-bottom:30px;
+}
+
+.price-card li{
+    padding:8px;
+}
+
+.trainers{
+    background:#101010;
+}
+
+.trainer-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.trainer{
+    background:#181818;
+    border-radius:15px;
+    overflow:hidden;
+    text-align:center;
+}
+
+.trainer-img{
+    height:360px;
+    background-size:cover;
+    background-position:center;
+}
+
+.trainer:nth-child(1) .trainer-img{
+    background-image:url("https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=900&q=90");
+}
+
+.trainer:nth-child(2) .trainer-img{
+    background-image:url("https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=90");
+}
+
+.trainer:nth-child(3) .trainer-img{
+    background-image:url("https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=900&q=90");
+}
+
+.trainer-info{
+    padding:25px;
+}
+
+.trainer-info p{
+    color:#e50914;
+    font-size:14px;
+}
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+}
+
+.gallery div{
+    height:260px;
+    border-radius:10px;
+    background-size:cover;
+    background-position:center;
+    transition:.3s;
+}
+
+.gallery div:hover{
+    transform:scale(1.03);
+}
+
+.g1{
+    background-image:url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=900&q=90");
+}
+
+.g2{
+    background-image:url("https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=900&q=90");
+}
+
+.g3{
+    background-image:url("https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=900&q=90");
+}
+
+.g4{
+    background-image:url("https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=900&q=90");
+}
+
+.g5{
+    background-image:url("https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&w=900&q=90");
+}
+
+.g6{
+    background-image:url("https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=900&q=90");
+}
+
+.contact{
+    text-align:center;
+    background:
+    linear-gradient(rgba(0,0,0,.78),rgba(0,0,0,.9)),
+    url("https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=2000&q=90")
+    center/cover;
+}
+
+.contact h2{
+    font-size:clamp(38px,6vw,65px);
+    margin-bottom:15px;
+}
+
+.contact p{
+    color:#ccc;
+    margin-bottom:30px;
+}
+
+footer{
+    padding:30px 7%;
+    background:#050505;
+    text-align:center;
+    color:#777;
+}
+
+footer strong{
+    color:white;
+}
+
+@media(max-width:900px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .about{
+        grid-template-columns:1fr;
+    }
+
+    .cards{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .pricing{
+        grid-template-columns:1fr;
+    }
+
+    .trainer-grid{
+        grid-template-columns:1fr;
+    }
+
+    .gallery{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .price-card.featured{
+        transform:none;
+    }
+}
+
+@media(max-width:600px){
+
+    section{
+        padding:70px 5%;
+    }
+
+    .hero{
+        padding:110px 5% 60px;
+    }
+
+    .hero h1{
+        font-size:60px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .btn{
+        padding:13px 22px;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .gallery{
+        grid-template-columns:1fr;
+    }
+
+    .gallery div{
+        height:230px;
+    }
+
+    .section-title h2{
+        font-size:35px;
+    }
+
+    .about-img{
+        height:350px;
+    }
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <!-- NAVIGATION -->
+<nav>
+    <div class="logo">HAWAR <span>GYM</span></div>
 
-    <nav>
-        <div class="logo">
-            HAWAR <span>GYM</span>
+    <ul class="nav-links">
+        <li><a href="#home">HOME</a></li>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#programs">PROGRAMS</a></li>
+        <li><a href="#membership">MEMBERSHIP</a></li>
+        <li><a href="#trainers">TRAINERS</a></li>
+        <li><a href="#gallery">GALLERY</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+    </ul>
+</nav>
+
+<header class="hero" id="home">
+    <div class="hero-content">
+
+        <div class="hero-small">
+            WELCOME TO HAWAR GYM
         </div>
 
-        <ul class="nav-links">
-            <li><a href="#home">HOME</a></li>
-            <li><a href="#about">ABOUT</a></li>
-            <li><a href="#programs">PROGRAMS</a></li>
-            <li><a href="#membership">MEMBERSHIP</a></li>
-            <li><a href="#trainers">TRAINERS</a></li>
-            <li><a href="#contact">CONTACT</a></li>
-        </ul>
-    </nav>
+        <h1>
+            BUILD YOUR<br>
+            <span>STRONGER</span> SELF.
+        </h1>
 
+        <p>
+            Train harder. Move stronger. Become the best version of yourself.
+            Your transformation starts here.
+        </p>
 
-    <!-- HERO -->
+        <a href="#membership" class="btn">JOIN NOW</a>
+        <a href="#programs" class="btn btn-outline">EXPLORE</a>
 
-    <header class="hero" id="home">
+    </div>
+</header>
 
-        <div class="hero-content">
+<section id="about">
 
-            <div class="hero-small">
-                WELCOME TO HAWAR GYM
-            </div>
+    <div class="about">
 
-            <h1>
-                BUILD YOUR<br>
-                <span>STRONGER</span> SELF.
-            </h1>
+        <div class="about-img"></div>
+
+        <div class="about-text">
+
+            <h2>
+                MORE THAN A <span>GYM.</span>
+            </h2>
 
             <p>
-                Train harder. Feel stronger. Become the best version of yourself.
-                Your fitness journey starts here.
+                HAWAR GYM is a modern fitness space built for people who want
+                to become stronger, healthier and more confident.
             </p>
 
-            <a href="#membership" class="btn">
-                JOIN NOW
+            <p>
+                Whether your goal is muscle building, fat loss, strength,
+                conditioning or simply improving your lifestyle,
+                our programs are designed to help you move forward.
+            </p>
+
+            <div class="stats">
+
+                <div class="stat">
+                    <strong>500+</strong>
+                    <span>MEMBERS</span>
+                </div>
+
+                <div class="stat">
+                    <strong>20+</strong>
+                    <span>PROGRAMS</span>
+                </div>
+
+                <div class="stat">
+                    <strong>5+</strong>
+                    <span>TRAINERS</span>
+                </div>
+
+            </div>
+
+            <a href="#contact" class="btn">
+                GET STARTED
             </a>
 
-            <a href="#programs" class="btn btn-outline">
-                EXPLORE
-            </a>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="programs" id="programs">
+
+    <div class="section-title">
+        <small>WHAT WE OFFER</small>
+        <h2>TRAINING PROGRAMS</h2>
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="card-icon">💪</div>
+            <h3>Muscle Building</h3>
+            <p>
+                Build lean muscle and increase strength with structured
+                resistance training.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">🔥</div>
+            <h3>Fat Loss</h3>
+            <p>
+                Effective workouts designed to support your body composition
+                and fitness goals.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">🏋️</div>
+            <h3>Strength Training</h3>
+            <p>
+                Develop power, endurance and functional strength through
+                progressive training.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">❤️</div>
+            <h3>Cardio</h3>
+            <p>
+                Improve stamina and cardiovascular fitness with energetic
+                cardio sessions.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="membership">
+
+    <div class="section-title">
+        <small>CHOOSE YOUR PLAN</small>
+        <h2>MEMBERSHIP</h2>
+    </div>
+
+    <div class="pricing">
+
+        <div class="price-card">
+
+            <h3>BASIC</h3>
+
+            <div class="price">
+                $20 <span>/ month</span>
+            </div>
+
+            <ul>
+                <li>✓ Gym Access</li>
+                <li>✓ Cardio Area</li>
+                <li>✓ Locker Access</li>
+                <li>✓ Free Wi-Fi</li>
+            </ul>
+
+            <a href="#contact" class="btn">JOIN</a>
 
         </div>
 
-    </header>
+        <div class="price-card featured">
 
+            <h3>PRO</h3>
 
-    <!-- ABOUT -->
-
-    <section id="about">
-
-        <div class="about">
-
-            <div class="about-img"></div>
-
-            <div class="about-text">
-
-                <h2>
-                    MORE THAN A <span>GYM.</span>
-                </h2>
-
-                <p>
-                    HAWAR GYM is a place where strength, discipline and confidence
-                    come together.
-                </p>
-
-                <p>
-                    Whether your goal is building muscle, losing fat, improving
-                    strength or simply becoming healthier, we are here to support
-                    your journey.
-                </p>
-
-                <a href="#contact" class="btn">
-                    GET STARTED
-                </a>
-
+            <div class="price">
+                $35 <span>/ month</span>
             </div>
+
+            <ul>
+                <li>✓ Everything in Basic</li>
+                <li>✓ Training Programs</li>
+                <li>✓ Fitness Assessment</li>
+                <li>✓ Trainer Support</li>
+            </ul>
+
+            <a href="#contact" class="btn">JOIN NOW</a>
 
         </div>
 
-    </section>
+        <div class="price-card">
 
+            <h3>ELITE</h3>
 
-    <!-- PROGRAMS -->
+            <div class="price">
+                $50 <span>/ month</span>
+            </div>
 
-    <section class="programs" id="programs">
+            <ul>
+                <li>✓ Everything in Pro</li>
+                <li>✓ Personal Training</li>
+                <li>✓ Nutrition Guidance</li>
+                <li>✓ Priority Support</li>
+            </ul>
 
-        <div class="section-title">
-
-            <small>WHAT WE OFFER</small>
-
-            <h2>TRAINING PROGRAMS</h2>
+            <a href="#contact" class="btn">JOIN</a>
 
         </div>
 
-        <div class="cards">
+    </div>
 
-            <div class="card">
-                <div class="card-icon">💪</div>
-                <h3>Muscle Building</h3>
-                <p>
-                    Build lean muscle and increase your strength with structured
-                    resistance training.
-                </p>
+</section>
+
+<section class="trainers" id="trainers">
+
+    <div class="section-title">
+        <small>MEET THE TEAM</small>
+        <h2>OUR TRAINERS</h2>
+    </div>
+
+    <div class="trainer-grid">
+
+        <div class="trainer">
+            <div class="trainer-img"></div>
+            <div class="trainer-info">
+                <h3>Hawar Trainer</h3>
+                <p>Strength Coach</p>
             </div>
-
-            <div class="card">
-                <div class="card-icon">🔥</div>
-                <h3>Fat Loss</h3>
-                <p>
-                    Improve your fitness and work toward your body composition
-                    goals with effective workouts.
-                </p>
-            </div>
-
-            <div class="card">
-                <div class="card-icon">🏋️</div>
-                <h3>Strength Training</h3>
-                <p>
-                    Develop power, endurance and functional strength through
-                    progressive training.
-                </p>
-            </div>
-
-            <div class="card">
-                <div class="card-icon">❤️</div>
-                <h3>Cardio</h3>
-                <p>
-                    Improve cardiovascular fitness and stamina with energetic
-                    cardio sessions.
-                </p>
-            </div>
-
         </div>
 
-    </section>
-
-
-    <!-- MEMBERSHIP -->
-
-    <section id="membership">
-
-        <div class="section-title">
-
-            <small>CHOOSE YOUR PLAN</small>
-
-            <h2>MEMBERSHIP</h2>
-
+        <div class="trainer">
+            <div class="trainer-img"></div>
+            <div class="trainer-info">
+                <h3>Fitness Coach</h3>
+                <p>Personal Trainer</p>
+            </div>
         </div>
 
-        <div class="pricing">
-
-            <div class="price-card">
-
-                <h3>BASIC</h3>
-
-                <div class="price">
-                    $20 <span>/ month</span>
-                </div>
-
-                <ul>
-                    <li>✓ Gym Access</li>
-                    <li>✓ Cardio Area</li>
-                    <li>✓ Locker Access</li>
-                    <li>✓ Free Wi-Fi</li>
-                </ul>
-
-                <a href="#contact" class="btn">
-                    JOIN
-                </a>
-
+        <div class="trainer">
+            <div class="trainer-img"></div>
+            <div class="trainer-info">
+                <h3>Performance Coach</h3>
+                <p>Fitness Specialist</p>
             </div>
-
-
-            <div class="price-card featured">
-
-                <h3>PRO</h3>
-
-                <div class="price">
-                    $35 <span>/ month</span>
-                </div>
-
-                <ul>
-                    <li>✓ Everything in Basic</li>
-                    <li>✓ Training Programs</li>
-                    <li>✓ Fitness Assessment</li>
-                    <li>✓ Trainer Support</li>
-                </ul>
-
-                <a href="#contact" class="btn">
-                    JOIN NOW
-                </a>
-
-            </div>
-
-
-            <div class="price-card">
-
-                <h3>ELITE</h3>
-
-                <div class="price">
-                    $50 <span>/ month</span>
-                </div>
-
-                <ul>
-                    <li>✓ Everything in Pro</li>
-                    <li>✓ Personal Training</li>
-                    <li>✓ Nutrition Guidance</li>
-                    <li>✓ Priority Support</li>
-                </ul>
-
-                <a href="#contact" class="btn">
-                    JOIN
-                </a>
-
-            </div>
-
         </div>
 
-    </section>
+    </div>
 
+</section>
 
-    <!-- TRAINERS -->
+<section id="gallery">
 
-    <section class="trainers" id="trainers">
+    <div class="section-title">
+        <small>OUR WORLD</small>
+        <h2>GYM GALLERY</h2>
+    </div>
 
-        <div class="section-title">
+    <div class="gallery">
+        <div class="g1"></div>
+        <div class="g2"></div>
+        <div class="g3"></div>
+        <div class="g4"></div>
+        <div class="g5"></div>
+        <div class="g6"></div>
+    </div>
 
-            <small>MEET THE TEAM</small>
+</section>
 
-            <h2>OUR TRAINERS</h2>
+<section class="contact" id="contact">
 
-        </div>
+    <h2>READY TO GET STRONGER?</h2>
 
-        <div class="trainer-grid">
+    <p>
+        Start your journey today and become the strongest version of yourself.
+    </p>
 
-            <div class="trainer">
+    <a href="https://instagram.com/" class="btn">
+        INSTAGRAM
+    </a>
 
-                <div class="trainer-img"></div>
+    <a href="tel:+9640000000000" class="btn btn-outline">
+        CALL US
+    </a>
 
-                <div class="trainer-info">
-                    <h3>Hawar Trainer</h3>
-                    <p>Strength Coach</p>
-                </div>
+</section>
 
-            </div>
+<footer>
 
+    <p>
+        © 2026 <strong>HAWAR GYM</strong>.
+        All Rights Reserved.
+    </p>
 
-            <div class="trainer">
-
-                <div class="trainer-img"></div>
-
-                <div class="trainer-info">
-                    <h3>Fitness Coach</h3>
-                    <p>Personal Trainer</p>
-                </div>
-
-            </div>
-
-
-            <div class="trainer">
-
-                <div class="trainer-img"></div>
-
-                <div class="trainer-info">
-                    <h3>Performance Coach</h3>
-                    <p>Fitness Specialist</p>
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- GALLERY -->
-
-    <section>
-
-        <div class="section-title">
-
-            <small>OUR WORLD</small>
-
-            <h2>GYM GALLERY</h2>
-
-        </div>
-
-        <div class="gallery">
-
-            <div class="g1"></div>
-            <div class="g2"></div>
-            <div class="g3"></div>
-            <div class="g4"></div>
-            <div class="g5"></div>
-            <div class="g6"></div>
-
-        </div>
-
-    </section>
-
-
-    <!-- CONTACT -->
-
-    <section class="contact" id="contact">
-
-        <h2>READY TO GET STRONGER?</h2>
-
-        <p>
-            Start your journey today and become the strongest version of yourself.
-        </p>
-
-        <a href="https://instagram.com/" class="btn">
-            INSTAGRAM
-        </a>
-
-        <a href="tel:+9640000000000" class="btn btn-outline">
-            CALL US
-        </a>
-
-    </section>
-
-
-    <!-- FOOTER -->
-
-    <footer>
-
-        <p>
-            © 2026 <strong>HAWAR GYM</strong>.
-            All Rights Reserved.
-        </p>
-
-    </footer>
-
-
-    <script>
-
-        // Simple entrance animation
-
-        const cards = document.querySelectorAll(
-            '.card, .price-card, .trainer'
-        );
-
-        const observer = new IntersectionObserver(
-            entries => {
-
-                entries.forEach(entry => {
-
-                    if (entry.isIntersecting) {
-
-                        entry.target.style.opacity = "1";
-                        entry.target.style.transform = "translateY(0)";
-
-                    }
-
-                });
-
-            },
-            {
-                threshold: 0.15
-            }
-        );
-
-        cards.forEach(card => {
-
-            card.style.opacity = "0";
-            card.style.transform = "translateY(30px)";
-            card.style.transition = "all .7s ease";
-
-            observer.observe(card);
-
-        });
-
-    </script>
+</footer>
 
 </body>
 </html>
