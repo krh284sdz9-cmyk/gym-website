@@ -414,6 +414,177 @@ footer span{
   }
 }
 </style>
+  /* ===== FITNESS PROGRAMS ===== */
+
+.fitness-section{
+  background:#070707;
+}
+
+.fitness-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+.fitness-card{
+  background:#121212;
+  border:1px solid #292929;
+  border-radius:16px;
+  padding:30px 20px;
+  text-align:center;
+  transition:.4s ease;
+  cursor:pointer;
+}
+
+.fitness-card:hover{
+  transform:translateY(-10px);
+  border-color:#e50914;
+  box-shadow:0 15px 40px rgba(229,9,20,.18);
+}
+
+.fitness-icon{
+  font-size:45px;
+  margin-bottom:15px;
+}
+
+.fitness-card h3{
+  font-size:21px;
+  margin-bottom:10px;
+  color:#fff;
+}
+
+.fitness-card p{
+  color:#999;
+  font-size:14px;
+  line-height:1.8;
+}
+
+.fitness-content{
+  margin-top:45px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
+}
+
+.fitness-box{
+  background:#111;
+  border:1px solid #292929;
+  border-radius:15px;
+  padding:30px;
+}
+
+.fitness-box h3{
+  color:#e50914;
+  font-size:24px;
+  margin-bottom:18px;
+}
+
+.fitness-box ul{
+  list-style:none;
+}
+
+.fitness-box li{
+  color:#ccc;
+  padding:10px 0;
+  border-bottom:1px solid #222;
+}
+
+.fitness-box li:last-child{
+  border-bottom:none;
+}
+
+.fitness-box li::before{
+  content:"✓";
+  color:#e50914;
+  font-weight:bold;
+  margin-left:10px;
+}
+
+.food-list{
+  display:grid;
+  gap:12px;
+}
+
+.food-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:#181818;
+  padding:14px 16px;
+  border-radius:8px;
+}
+
+.food-item span:first-child{
+  color:#fff;
+}
+
+.food-item span:last-child{
+  color:#e50914;
+  font-weight:bold;
+}
+
+.daily-table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+.daily-table th,
+.daily-table td{
+  padding:14px 10px;
+  border-bottom:1px solid #292929;
+  text-align:right;
+}
+
+.daily-table th{
+  color:#e50914;
+  font-size:16px;
+}
+
+.daily-table td{
+  color:#ccc;
+}
+
+.tip{
+  background:linear-gradient(135deg,#171717,#0b0b0b);
+  border-right:4px solid #e50914;
+  padding:15px;
+  margin-bottom:12px;
+  border-radius:8px;
+  color:#ccc;
+}
+
+.tip strong{
+  color:#fff;
+}
+
+/* Mobile */
+@media(max-width:850px){
+
+  .fitness-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .fitness-content{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:550px){
+
+  .fitness-grid{
+    grid-template-columns:1fr;
+  }
+
+  .fitness-box{
+    padding:22px 16px;
+  }
+
+  .daily-table th,
+  .daily-table td{
+    padding:10px 5px;
+    font-size:13px;
+  }
+}
   /* ===== PREMIUM ANIMATIONS ===== */
 
 html{
@@ -591,7 +762,7 @@ section{
 
 <div class="logo">HAWAR GYM</div>
 
-<ul>
+<ul><li><a href="#fitness">بەرنامەی Fitness</a></li>
 <li><a href="#home">سەرەتا</a></li>
 <li><a href="#about">دەربارەمان</a></li>
 <li><a href="#programs">بەرنامەکان</a></li>
@@ -673,7 +844,208 @@ HAWAR GYM بۆ ئەو کەسانەیە کە دەیانەوێت
 
 
 <section id="programs">
+<section class="fitness-section" id="fitness">
 
+<div class="container">
+
+<div class="title">
+<h2>بەرنامەی HAWAR GYM</h2>
+<p>ڕاهێنان، خواردن، ڕێنمایی و خشتەی ڕۆژانە</p>
+</div>
+
+<div class="fitness-grid">
+
+<div class="fitness-card">
+<div class="fitness-icon">💪</div>
+<h3>بەرنامەی ڕاهێنان</h3>
+<p>
+پلانی ڕاهێنان بەپێی ئامانجەکەت؛
+Muscle Building، Fat Loss و Strength.
+</p>
+</div>
+
+
+<div class="fitness-card">
+<div class="fitness-icon">🥗</div>
+<h3>بەرنامەی خواردن</h3>
+<p>
+ڕێنمایی بۆ خواردنی هاوسەنگ،
+Protein، Carbohydrates و Healthy Fats.
+</p>
+</div>
+
+
+<div class="fitness-card">
+<div class="fitness-icon">📚</div>
+<h3>ڕێنمایی Fitness</h3>
+<p>
+فێربوونی بنەماکانی ڕاهێنان،
+Rest، Sleep و Recovery.
+</p>
+</div>
+
+
+<div class="fitness-card">
+<div class="fitness-icon">📅</div>
+<h3>خشتەی ڕۆژانە</h3>
+<p>
+خشتەی ڕۆژانە بۆ ڕاهێنان،
+خواردن، ئاو و پشوودان.
+</p>
+</div>
+
+</div>
+
+
+<div class="fitness-content">
+
+
+<!-- WORKOUT -->
+
+<div class="fitness-box">
+
+<h3>💪 بەرنامەی ڕاهێنان</h3>
+
+<ul>
+<li>Push — Chest, Shoulders & Triceps</li>
+<li>Pull — Back & Biceps</li>
+<li>Legs — Quads, Hamstrings & Glutes</li>
+<li>Core — Abs & Core Strength</li>
+<li>Cardio — Walking, Running & Cycling</li>
+</ul>
+
+</div>
+
+
+<!-- FOOD -->
+
+<div class="fitness-box">
+
+<h3>🥗 بەرنامەی خواردن</h3>
+
+<div class="food-list">
+
+<div class="food-item">
+<span>🍳 نانی بەیانی</span>
+<span>Protein</span>
+</div>
+
+<div class="food-item">
+<span>🍌 Snack</span>
+<span>Energy</span>
+</div>
+
+<div class="food-item">
+<span>🍗 نانی نیوەڕۆ</span>
+<span>Protein + Carbs</span>
+</div>
+
+<div class="food-item">
+<span>🥛 Post Workout</span>
+<span>Recovery</span>
+</div>
+
+<div class="food-item">
+<span>🥗 نانی ئێوارە</span>
+<span>Balanced</span>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- FITNESS TIPS -->
+
+<div class="fitness-box">
+
+<h3>📚 ڕێنمایی Fitness</h3>
+
+<div class="tip">
+<strong>🔥 Warm-up</strong><br>
+پێش ڕاهێنان جەستەت بە نەرمی گەرم بکەرەوە.
+</div>
+
+<div class="tip">
+<strong>💧 Hydration</strong><br>
+لە ماوەی ڕۆژەکەدا ئاوی پێویست بخۆ.
+</div>
+
+<div class="tip">
+<strong>😴 Sleep</strong><br>
+خەوتنی باش بەشێکی گرنگی Recovery ـە.
+</div>
+
+<div class="tip">
+<strong>🏋️ Technique</strong><br>
+تکنیکی دروست لە ژمارەی وزە و Reps گرنگترە.
+</div>
+
+</div>
+
+
+<!-- DAILY PLAN -->
+
+<div class="fitness-box">
+
+<h3>📅 خشتەی ڕۆژانە</h3>
+
+<table class="daily-table">
+
+<tr>
+<th>کات</th>
+<th>چالاکی</th>
+</tr>
+
+<tr>
+<td>7:00</td>
+<td>💧 ئاو</td>
+</tr>
+
+<tr>
+<td>8:00</td>
+<td>🍳 نانی بەیانی</td>
+</tr>
+
+<tr>
+<td>10:30</td>
+<td>🍌 Snack</td>
+</tr>
+
+<tr>
+<td>13:00</td>
+<td>🍗 نانی نیوەڕۆ</td>
+</tr>
+
+<tr>
+<td>17:00</td>
+<td>🏋️ ڕاهێنان</td>
+</tr>
+
+<tr>
+<td>18:30</td>
+<td>🥛 Post Workout</td>
+</tr>
+
+<tr>
+<td>20:30</td>
+<td>🥗 نانی ئێوارە</td>
+</tr>
+
+<tr>
+<td>22:30</td>
+<td>😴 خەوتن</td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
 <div class="container">
 
 <div class="title">
