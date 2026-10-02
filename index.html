@@ -1,22 +1,587 @@
-/* ===== PREMIUM ANIMATIONS ===== */
+<!DOCTYPE html>
+<html lang="ku" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-html{
+<title>HAWAR GYM | هەوار جیم</title>
+
+<meta name="description" content="HAWAR GYM — جەستەی بەهێز، مێشکی بەهێز و ژیانێکی چالاک.">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
+<meta http-equiv="Content-Security-Policy"
+content="default-src 'self';
+img-src 'self' https://images.unsplash.com;
+style-src 'self' 'unsafe-inline';
+script-src 'self' 'unsafe-inline';
+connect-src 'self';
+font-src 'self';
+object-src 'none';
+base-uri 'none';
+form-action 'self';
+frame-ancestors 'none';
+upgrade-insecure-requests;">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
   scroll-behavior:smooth;
 }
 
 body{
+  font-family:Arial,Tahoma,sans-serif;
+  background:#070707;
+  color:#fff;
+  line-height:1.8;
   overflow-x:hidden;
 }
 
-/* Hero entrance */
+a{
+  color:inherit;
+}
+
+button{
+  font-family:inherit;
+}
+
+header{
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:999;
+  background:rgba(5,5,5,.94);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid #222;
+}
+
+nav{
+  max-width:1200px;
+  margin:auto;
+  padding:15px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-size:25px;
+  font-weight:900;
+  color:#e50914;
+  letter-spacing:2px;
+}
+
+nav ul{
+  display:flex;
+  gap:20px;
+  list-style:none;
+}
+
+nav a{
+  position:relative;
+  color:#fff;
+  text-decoration:none;
+  font-size:14px;
+  transition:.3s;
+}
+
+nav a:hover{
+  color:#e50914;
+}
+
+nav a::after{
+  content:"";
+  position:absolute;
+  right:0;
+  bottom:-6px;
+  width:0;
+  height:2px;
+  background:#e50914;
+  transition:.3s;
+}
+
+nav a:hover::after{
+  width:100%;
+}
+
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:130px 20px 70px;
+
+  background:
+  linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.9)),
+  url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1800&q=90")
+  center/cover;
+}
+
 .hero-box{
-  animation: heroEnter 1.2s ease-out both;
+  max-width:850px;
+  animation:heroEnter 1.2s ease both;
+}
+
+.badge{
+  display:inline-block;
+  border:1px solid #e50914;
+  color:#e50914;
+  padding:5px 18px;
+  border-radius:30px;
+  margin-bottom:18px;
+  font-size:14px;
+}
+
+.hero h1{
+  font-size:72px;
+  line-height:1.1;
+  font-weight:900;
+}
+
+.hero h1 span{
+  color:#e50914;
+  animation:glow 2s infinite alternate;
+}
+
+.hero p{
+  color:#ddd;
+  font-size:19px;
+  margin:20px 0 30px;
+}
+
+.btn{
+  display:inline-block;
+  padding:13px 28px;
+  background:#e50914;
+  color:#fff;
+  text-decoration:none;
+  border-radius:7px;
+  font-weight:bold;
+  margin:5px;
+  transition:.35s;
+}
+
+.btn:hover{
+  background:#fff;
+  color:#111;
+  transform:translateY(-4px);
+  box-shadow:0 10px 30px rgba(229,9,20,.25);
+}
+
+.btn-outline{
+  background:transparent;
+  border:1px solid #fff;
 }
 
 @keyframes heroEnter{
   from{
     opacity:0;
-    transform:translateY(50px) scale(.96);
+    transform:translateY(45px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@keyframes glow{
+  from{
+    text-shadow:0 0 5px rgba(229,9,20,.2);
+  }
+  to{
+    text-shadow:0 0 25px rgba(229,9,20,.8);
+  }
+}
+
+section{
+  padding:90px 20px;
+}
+
+.container{
+  max-width:1150px;
+  margin:auto;
+}
+
+.title{
+  text-align:center;
+  margin-bottom:45px;
+}
+
+.title h2{
+  color:#e50914;
+  font-size:38px;
+  margin-bottom:8px;
+}
+
+.title p{
+  color:#999;
+}
+
+.about{
+  background:#101010;
+}
+
+.about-box{
+  max-width:850px;
+  margin:auto;
+  text-align:center;
+}
+
+.about-box p{
+  color:#ccc;
+  font-size:18px;
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+  margin-top:40px;
+}
+
+.stat{
+  background:#161616;
+  padding:28px 20px;
+  text-align:center;
+  border-radius:12px;
+  border:1px solid #242424;
+  transition:.4s;
+}
+
+.stat:hover{
+  transform:translateY(-8px);
+  border-color:#e50914;
+  box-shadow:0 15px 35px rgba(229,9,20,.15);
+}
+
+.stat strong{
+  display:block;
+  font-size:40px;
+  margin-bottom:5px;
+}
+
+.stat span{
+  display:block;
+  color:#fff;
+  font-size:18px;
+  font-weight:bold;
+}
+
+.stat small{
+  display:block;
+  color:#888;
+  margin-top:5px;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+.card{
+  background:#121212;
+  border:1px solid #252525;
+  border-radius:14px;
+  padding:30px 20px;
+  text-align:center;
+  transition:.4s;
+}
+
+.card:hover{
+  transform:translateY(-10px) scale(1.02);
+  border-color:#e50914;
+  box-shadow:0 15px 40px rgba(229,9,20,.18);
+}
+
+.icon{
+  font-size:45px;
+  margin-bottom:12px;
+}
+
+.card h3{
+  margin-bottom:10px;
+}
+
+.card p{
+  color:#999;
+  font-size:14px;
+}
+
+.fitness-area{
+  background:#0a0a0a;
+}
+
+.fitness-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+.fitness-card{
+  background:#121212;
+  border:1px solid #292929;
+  border-radius:16px;
+  padding:32px 20px;
+  text-align:center;
+  cursor:pointer;
+  transition:.4s;
+}
+
+.fitness-card:hover{
+  transform:translateY(-10px);
+  border-color:#e50914;
+  box-shadow:0 15px 40px rgba(229,9,20,.18);
+}
+
+.fitness-icon{
+  font-size:45px;
+  margin-bottom:15px;
+}
+
+.fitness-card h3{
+  font-size:21px;
+  margin-bottom:8px;
+}
+
+.fitness-card p{
+  color:#999;
+  font-size:14px;
+}
+
+.profile{
+  background:#111;
+  text-align:center;
+}
+
+.profile-circle{
+  width:170px;
+  height:170px;
+  border-radius:50%;
+  margin:0 auto 22px;
+  border:4px solid #e50914;
+  overflow:hidden;
+  box-shadow:0 0 30px rgba(229,9,20,.25);
+  transition:.5s;
+}
+
+.profile-circle:hover{
+  transform:scale(1.07);
+  box-shadow:
+  0 0 25px rgba(229,9,20,.6),
+  0 0 55px rgba(229,9,20,.2);
+}
+
+.profile-circle img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.profile h3{
+  font-size:28px;
+  margin-bottom:8px;
+}
+
+.profile p{
+  color:#aaa;
+  max-width:650px;
+  margin:auto;
+}
+
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+}
+
+.gallery img{
+  width:100%;
+  height:250px;
+  object-fit:cover;
+  border-radius:12px;
+  transition:.5s;
+}
+
+.gallery img:hover{
+  transform:scale(1.05);
+  filter:brightness(.75);
+  box-shadow:0 15px 35px rgba(0,0,0,.5);
+}
+
+.plans{
+  background:#101010;
+}
+
+.plan{
+  background:#171717;
+  padding:35px 20px;
+  border-radius:12px;
+  text-align:center;
+  border:1px solid #292929;
+  transition:.4s;
+}
+
+.plan:hover{
+  transform:translateY(-8px);
+  border-color:#e50914;
+}
+
+.plan h3{
+  color:#e50914;
+  font-size:24px;
+  margin-bottom:12px;
+}
+
+.plan p{
+  color:#aaa;
+  margin-bottom:20px;
+}
+
+.contact{
+  background:#101010;
+  text-align:center;
+}
+
+.contact-box{
+  max-width:700px;
+  margin:auto;
+}
+
+.contact-box p{
+  color:#ccc;
+  font-size:18px;
+  margin-bottom:20px;
+}
+
+.tiktok{
+  display:inline-block;
+  color:#fff;
+  background:#000;
+  border:1px solid #333;
+  padding:12px 24px;
+  border-radius:7px;
+  text-decoration:none;
+  transition:.4s;
+}
+
+.tiktok:hover{
+  border-color:#e50914;
+  color:#e50914;
+  transform:translateY(-4px);
+}
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.85);
+  backdrop-filter:blur(8px);
+  z-index:2000;
+
+  display:none;
+  align-items:center;
+  justify-content:center;
+
+  padding:20px;
+}
+
+.modal.active{
+  display:flex;
+  animation:modalFade .3s ease;
+}
+
+.modal-box{
+  width:100%;
+  max-width:700px;
+  max-height:85vh;
+  overflow-y:auto;
+
+  background:#111;
+  border:1px solid #e50914;
+  border-radius:18px;
+  padding:35px;
+
+  position:relative;
+
+  box-shadow:
+  0 20px 80px rgba(0,0,0,.7),
+  0 0 35px rgba(229,9,20,.15);
+
+  animation:modalUp .4s ease;
+}
+
+.close{
+  position:absolute;
+  top:12px;
+  left:18px;
+
+  width:38px;
+  height:38px;
+
+  border:1px solid #333;
+  background:#181818;
+  color:#fff;
+
+  border-radius:50%;
+  font-size:20px;
+  cursor:pointer;
+}
+
+.close:hover{
+  background:#e50914;
+}
+
+.modal-box h2{
+  color:#e50914;
+  margin-bottom:15px;
+  font-size:28px;
+}
+
+.modal-box h3{
+  margin-top:22px;
+  margin-bottom:10px;
+  color:#fff;
+}
+
+.modal-box p{
+  color:#bbb;
+  margin-bottom:12px;
+}
+
+.modal-box ul{
+  list-style:none;
+}
+
+.modal-box li{
+  color:#ccc;
+  padding:9px 0;
+  border-bottom:1px solid #252525;
+}
+
+.modal-box li::before{
+  content:"✓";
+  color:#e50914;
+  font-weight:bold;
+  margin-left:10px;
+}
+
+@keyframes modalFade{
+  from{
+    opacity:0;
+  }
+  to{
+    opacity:1;
+  }
+}
+
+@keyframes modalUp{
+  from{
+    opacity:0;
+    transform:translateY(30px) scale(.95);
   }
   to{
     opacity:1;
@@ -24,145 +589,815 @@ body{
   }
 }
 
-/* Red glow around main title */
-.hero h1 span{
-  animation: redGlow 2s ease-in-out infinite alternate;
+footer{
+  background:#050505;
+  text-align:center;
+  padding:25px;
+  color:#777;
 }
 
-@keyframes redGlow{
-  from{
-    text-shadow:0 0 5px rgba(229,9,20,.2);
+footer span{
+  color:#e50914;
+}
+
+@media(max-width:850px){
+
+  nav{
+    flex-direction:column;
+    gap:10px;
   }
-  to{
-    text-shadow:0 0 25px rgba(229,9,20,.75);
+
+  nav ul{
+    gap:12px;
+    flex-wrap:wrap;
+    justify-content:center;
   }
-}
 
-/* Buttons */
-.btn{
-  position:relative;
-  overflow:hidden;
-}
-
-.btn::before{
-  content:"";
-  position:absolute;
-  top:0;
-  left:-100%;
-  width:100%;
-  height:100%;
-  background:rgba(255,255,255,.18);
-  transform:skewX(-20deg);
-  transition:.5s;
-}
-
-.btn:hover::before{
-  left:120%;
-}
-
-/* Cards */
-.card,
-.plan,
-.stat{
-  transition:
-    transform .4s ease,
-    border-color .4s ease,
-    box-shadow .4s ease;
-}
-
-.card:hover,
-.plan:hover{
-  transform:translateY(-12px) scale(1.02);
-  border-color:#e50914;
-  box-shadow:
-    0 15px 40px rgba(229,9,20,.18);
-}
-
-/* Icons */
-.icon{
-  transition:.4s ease;
-}
-
-.card:hover .icon{
-  transform:scale(1.2) rotate(-5deg);
-}
-
-/* Profile image */
-.profile-circle{
-  transition:.5s ease;
-  box-shadow:0 0 0 rgba(229,9,20,0);
-}
-
-.profile-circle:hover{
-  transform:scale(1.08);
-  box-shadow:
-    0 0 20px rgba(229,9,20,.5),
-    0 0 50px rgba(229,9,20,.2);
-}
-
-/* Gallery */
-.gallery img{
-  transition:
-    transform .5s ease,
-    filter .5s ease,
-    box-shadow .5s ease;
-}
-
-.gallery img:hover{
-  transform:scale(1.06);
-  filter:brightness(.85);
-  box-shadow:0 15px 35px rgba(0,0,0,.5);
-}
-
-/* Navigation */
-nav a{
-  position:relative;
-}
-
-nav a::after{
-  content:"";
-  position:absolute;
-  bottom:-6px;
-  right:0;
-  width:0;
-  height:2px;
-  background:#e50914;
-  transition:.3s ease;
-}
-
-nav a:hover::after{
-  width:100%;
-}
-
-/* Section titles */
-.title h2{
-  transition:.4s ease;
-}
-
-.title:hover h2{
-  text-shadow:0 0 20px rgba(229,9,20,.4);
-}
-
-/* TikTok button */
-.tiktok{
-  transition:.4s ease;
-}
-
-.tiktok:hover{
-  transform:translateY(-4px);
-  box-shadow:0 10px 25px rgba(229,9,20,.2);
-}
-
-/* Smooth appearance */
-section{
-  animation:sectionFade 1s ease both;
-}
-
-@keyframes sectionFade{
-  from{
-    opacity:0;
+  nav a{
+    font-size:12px;
   }
-  to{
-    opacity:1;
+
+  .hero h1{
+    font-size:48px;
+  }
+
+  .cards,
+  .fitness-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .gallery{
+    grid-template-columns:repeat(2,1fr);
   }
 }
+
+@media(max-width:550px){
+
+  section{
+    padding:70px 15px;
+  }
+
+  .hero h1{
+    font-size:39px;
+  }
+
+  .hero p{
+    font-size:16px;
+  }
+
+  .stats,
+  .cards,
+  .fitness-grid,
+  .gallery{
+    grid-template-columns:1fr;
+  }
+
+  .gallery img{
+    height:250px;
+  }
+
+  .modal-box{
+    padding:28px 20px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<nav>
+
+<div class="logo">
+HAWAR GYM
+</div>
+
+<ul>
+<li><a href="#home">سەرەتا</a></li>
+<li><a href="#about">دەربارەمان</a></li>
+<li><a href="#programs">بەرنامەکان</a></li>
+<li><a href="#fitness">Fitness</a></li>
+<li><a href="#hawar">هەوار</a></li>
+<li><a href="#gallery">وێنەکان</a></li>
+<li><a href="#contact">پەیوەندی</a></li>
+</ul>
+
+</nav>
+</header>
+
+
+<section class="hero" id="home">
+
+<div class="hero-box">
+
+<div class="badge">
+بەخێربێیت بۆ HAWAR GYM
+</div>
+
+<h1>
+خۆت <span>بەهێزتر</span> بکە
+</h1>
+
+<p>
+جەستەی بەهێز، مێشکی بەهێز و ژیانێکی چالاک.
+گەشتەکەت بۆ گۆڕانکاری لێرە دەست پێ دەکات.
+</p>
+
+<a href="#programs" class="btn">
+بەرنامەکان ببینە
+</a>
+
+<a href="#contact" class="btn btn-outline">
+پەیوەندی بکە
+</a>
+
+</div>
+</section>
+
+
+<section class="about" id="about">
+
+<div class="container">
+
+<div class="title">
+<h2>دەربارەی HAWAR GYM</h2>
+<p>شوێنی گەشەپێدانی جەستە و تواناکانت</p>
+</div>
+
+<div class="about-box">
+
+<p>
+HAWAR GYM بۆ ئەو کەسانەیە کە دەیانەوێت
+خۆیان بگۆڕن، جەستەیان بەهێز بکەن و
+بە ئامانجەکانیان بگەن.
+<br><br>
+ئێمە باوەڕمان وایە گۆڕانکاری بە هەنگاوێکی
+بچووک دەست پێ دەکات.
+</p>
+
+<div class="stats">
+
+<div class="stat">
+<strong>💪</strong>
+<span>جەستەی بەهێز</span>
+<small>هێز و توانای زیاتر</small>
+</div>
+
+<div class="stat">
+<strong>🔥</strong>
+<span>ئامانجی نوێ</span>
+<small>هەموو ڕۆژێک هەنگاوێک بەرەو پێش</small>
+</div>
+
+<div class="stat">
+<strong>🏆</strong>
+<span>پێشکەوتن</span>
+<small>باشترکردنی خۆت بەردەوامە</small>
+</div>
+
+</div>
+</div>
+</div>
+</section>
+
+
+<section id="programs">
+
+<div class="container">
+
+<div class="title">
+<h2>بەرنامەکانی ڕاهێنان</h2>
+<p>ئامانجەکەت هەڵبژێرە</p>
+</div>
+
+<div class="cards">
+
+<div class="card">
+<div class="icon">💪</div>
+<h3>ماسڵ بۆڵدینگ</h3>
+<p>
+بەرنامە بۆ زیادکردنی ماسولکە و
+دروستکردنی جەستەی بەهێز.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">🔥</div>
+<h3>کەمکردنەوەی چەوری</h3>
+<p>
+ڕاهێنان بۆ چالاککردنی جەستە و
+کەمکردنەوەی چەوری.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">🏋️</div>
+<h3>زیادکردنی هێز</h3>
+<p>
+ڕاهێنان بۆ زیادکردنی هێز و
+توانای جەستە.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">❤️</div>
+<h3>کاردیۆ</h3>
+<p>
+ڕاهێنان بۆ باشترکردنی توانای
+دڵ و سیستەمی جەستە.
+</p>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<section class="fitness-area" id="fitness">
+
+<div class="container">
+
+<div class="title">
+<h2>بەرنامە و ڕێنمایی HAWAR GYM</h2>
+<p>لەسەر هەر بەشێک کرتە بکە بۆ بینینی زانیارییەکان</p>
+</div>
+
+<div class="fitness-grid">
+
+<div class="fitness-card" data-modal="workoutModal" tabindex="0">
+<div class="fitness-icon">💪</div>
+<h3>بەرنامەی ڕاهێنان</h3>
+<p>پلان و ڕێنمایی ڕاهێنان بەپێی ئامانج</p>
+</div>
+
+<div class="fitness-card" data-modal="foodModal" tabindex="0">
+<div class="fitness-icon">🥗</div>
+<h3>بەرنامەی خواردن</h3>
+<p>ڕێنمایی خواردن و ژینگەی تەندروست</p>
+</div>
+
+<div class="fitness-card" data-modal="tipsModal" tabindex="0">
+<div class="fitness-icon">📚</div>
+<h3>ڕێنمایی Fitness</h3>
+<p>Tips بۆ ڕاهێنان و Recovery</p>
+</div>
+
+<div class="fitness-card" data-modal="dailyModal" tabindex="0">
+<div class="fitness-icon">📅</div>
+<h3>خشتەی ڕۆژانە</h3>
+<p>ڕێکخستنی ڕۆژ بۆ Fitness</p>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<section class="profile" id="hawar">
+
+<div class="container">
+
+<div class="title">
+<h2>HAWAR</h2>
+<p>کەسایەتی پشت HAWAR GYM</p>
+</div>
+
+<div class="profile-circle">
+
+<img
+src="IMG_6354.jpeg"
+alt="هەوار"
+width="170"
+height="170"
+loading="lazy"
+decoding="async">
+
+</div>
+
+<h3>هەوار</h3>
+
+<p>
+لە HAWAR GYM ئامانجمان ئەوەیە
+هەموو کەسێک هانی بدەین بۆ ئەوەی
+وەشانی باشتر و بەهێزتری خۆی دروست بکات.
+</p>
+
+<br>
+
+<a
+href="https://www.tiktok.com/@dr.haaw4r"
+target="_blank"
+rel="noopener noreferrer"
+class="tiktok">
+🎵 TikTok ـی هەوار
+</a>
+
+</div>
+</section>
+
+
+<section id="gallery">
+
+<div class="container">
+
+<div class="title">
+<h2>گالەری HAWAR GYM</h2>
+<p>ژینگەی ڕاهێنان و چالاکی</p>
+</div>
+
+<div class="gallery">
+
+<img
+src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=900&q=90"
+alt="Gym training"
+loading="lazy"
+decoding="async">
+
+<img
+src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=900&q=90"
+alt="Fitness training"
+loading="lazy"
+decoding="async">
+
+<img
+src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=900&q=90"
+alt="Workout"
+loading="lazy"
+decoding="async">
+
+<img
+src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=900&q=90"
+alt="Gym exercise"
+loading="lazy"
+decoding="async">
+
+<img
+src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=900&q=90"
+alt="Strength training"
+loading="lazy"
+decoding="async">
+
+<img
+src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&w=900&q=90"
+alt="Gym equipment"
+loading="lazy"
+decoding="async">
+
+</div>
+</div>
+</section>
+
+
+<section class="plans">
+
+<div class="container">
+
+<div class="title">
+<h2>ئەندامێتی</h2>
+<p>پلانی گونجاو بۆ ئامانجەکەت</p>
+</div>
+
+<div class="cards">
+
+<div class="plan">
+<h3>پلانی سەرەتایی</h3>
+<p>
+بۆ دەستپێکردنی ڕاهێنان و
+دروستکردنی عادەتێکی تەندروست.
+</p>
+
+<a href="#contact" class="btn">
+زانیاری زیاتر
+</a>
+</div>
+
+<div class="plan">
+<h3>پلانی پێشکەوتوو</h3>
+<p>
+بۆ ئەو کەسانەی ئامانجیان
+پێشکەوتنی زیاترە.
+</p>
+
+<a href="#contact" class="btn">
+زانیاری زیاتر
+</a>
+</div>
+
+<div class="plan">
+<h3>پلانی تایبەت</h3>
+<p>
+بەرنامەی تایبەت بەپێی ئامانج
+و توانای جەستە.
+</p>
+
+<a href="#contact" class="btn">
+پەیوەندی بکە
+</a>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<section class="contact" id="contact">
+
+<div class="container">
+
+<div class="title">
+<h2>پەیوەندی</h2>
+<p>لەگەڵ HAWAR GYM پەیوەندی بکە</p>
+</div>
+
+<div class="contact-box">
+
+<p>
+ئامادەیت گۆڕانکاری لە ژیانتدا دەست پێ بکەیت؟
+لە TikTok ـەکەمان سەردانمان بکە.
+</p>
+
+<a
+href="https://www.tiktok.com/@dr.haaw4r"
+target="_blank"
+rel="noopener noreferrer"
+class="btn">
+🎵 سەیری TikTok بکە
+</a>
+
+</div>
+</div>
+</section>
+
+
+<footer>
+
+© 2026
+<span>HAWAR GYM</span>
+— هەموو مافەکان پارێزراون.
+
+</footer>
+
+
+<!-- WORKOUT -->
+
+<div class="modal" id="workoutModal" aria-hidden="true">
+
+<div class="modal-box">
+
+<button
+class="close"
+type="button"
+data-close-modal
+aria-label="داخستن">
+×
+</button>
+
+<h2>💪 بەرنامەی ڕاهێنان</h2>
+
+<p>
+ئەمە نموونەیەکی گشتیی بەرنامەی ڕاهێنانە.
+پلانە کەسییەکان دەبێت بەپێی ئامانج و توانای کەسەکە ڕێکبخرێن.
+</p>
+
+<h3>🔥 Muscle Building</h3>
+
+<ul>
+<li>Chest — Chest Press / Push-ups</li>
+<li>Back — Lat Pulldown / Rows</li>
+<li>Shoulders — Shoulder Press</li>
+<li>Arms — Biceps / Triceps</li>
+<li>Legs — Squats / Lunges</li>
+</ul>
+
+<h3>🏋️ Strength</h3>
+
+<ul>
+<li>ڕاهێنانی بە وزەی گونجاو</li>
+<li>Focus لەسەر Technique</li>
+<li>Rest لەنێوان Set ـەکان</li>
+</ul>
+
+</div>
+</div>
+
+
+<!-- FOOD -->
+
+<div class="modal" id="foodModal" aria-hidden="true">
+
+<div class="modal-box">
+
+<button
+class="close"
+type="button"
+data-close-modal
+aria-label="داخستن">
+×
+</button>
+
+<h2>🥗 بەرنامەی خواردن</h2>
+
+<p>
+خواردنی هاوسەنگ یارمەتیدەدات جەستە وزە و ماددەی پێویستی
+بۆ ڕاهێنان و Recovery وەربگرێت.
+</p>
+
+<h3>🍳 نانی بەیانی</h3>
+
+<ul>
+<li>Eggs / هێلکە</li>
+<li>Oats / جۆ</li>
+<li>Milk / شیر</li>
+<li>Fruit / میوە</li>
+</ul>
+
+<h3>🍗 نانی نیوەڕۆ</h3>
+
+<ul>
+<li>Chicken / مریشک</li>
+<li>Rice / برنج</li>
+<li>Vegetables / سەوزە</li>
+</ul>
+
+<h3>🥛 دوای ڕاهێنان</h3>
+
+<ul>
+<li>Protein-rich food</li>
+<li>Water / ئاو</li>
+<li>Fruit</li>
+</ul>
+
+</div>
+</div>
+
+
+<!-- TIPS -->
+
+<div class="modal" id="tipsModal" aria-hidden="true">
+
+<div class="modal-box">
+
+<button
+class="close"
+type="button"
+data-close-modal
+aria-label="داخستن">
+×
+</button>
+
+<h2>📚 ڕێنمایی Fitness</h2>
+
+<h3>🔥 Warm-up</h3>
+
+<p>
+پێش ڕاهێنان بە نەرمی جەستەت گەرم بکەرەوە.
+</p>
+
+<h3>💧 Hydration</h3>
+
+<p>
+لە ماوەی ڕۆژەکەدا ئاوی پێویست بخۆ و
+لە کاتی ڕاهێنانیش ئاوت لەبیر نەچێت.
+</p>
+
+<h3>😴 Sleep</h3>
+
+<p>
+خەوتنی باش بەشێکی گرنگی Recovery ـە.
+</p>
+
+<h3>🏋️ Technique</h3>
+
+<p>
+تکنیکی دروست و کۆنترۆڵی جوڵەکان گرنگترە
+لە تەنها زیادکردنی وزە.
+</p>
+
+<h3>📈 Progress</h3>
+
+<p>
+پێشکەوتنت تۆمار بکە و بەردەوام بە.
+</p>
+
+</div>
+</div>
+
+
+<!-- DAILY -->
+
+<div class="modal" id="dailyModal" aria-hidden="true">
+
+<div class="modal-box">
+
+<button
+class="close"
+type="button"
+data-close-modal
+aria-label="داخستن">
+×
+</button>
+
+<h2>📅 خشتەی ڕۆژانە</h2>
+
+<ul>
+<li>07:00 — 💧 ئاو</li>
+<li>08:00 — 🍳 نانی بەیانی</li>
+<li>10:30 — 🍌 Snack</li>
+<li>13:00 — 🍗 نانی نیوەڕۆ</li>
+<li>17:00 — 🏋️ ڕاهێنان</li>
+<li>18:30 — 🥛 خواردنی دوای ڕاهێنان</li>
+<li>20:30 — 🥗 نانی ئێوارە</li>
+<li>22:30 — 😴 خەوتن</li>
+</ul>
+
+<p style="margin-top:20px;">
+ئەم خشتەیە نموونەیە و کاتی ڕاهێنان و خواردن
+دەتوانرێت بەپێی شێوازی ژیانت بگۆڕدرێت.
+</p>
+
+</div>
+</div>
+
+
+<script>
+
+"use strict";
+
+(function(){
+
+  const cards =
+    document.querySelectorAll("[data-modal]");
+
+  const modals =
+    document.querySelectorAll(".modal");
+
+  const closeButtons =
+    document.querySelectorAll("[data-close-modal]");
+
+  let activeModal = null;
+
+
+  function openModal(id){
+
+    const modal =
+      document.getElementById(id);
+
+    if(!modal){
+      return;
+    }
+
+    modals.forEach(function(item){
+
+      item.classList.remove("active");
+
+      item.setAttribute(
+        "aria-hidden",
+        "true"
+      );
+
+    });
+
+    modal.classList.add("active");
+
+    modal.setAttribute(
+      "aria-hidden",
+      "false"
+    );
+
+    document.body.style.overflow =
+      "hidden";
+
+    activeModal = modal;
+
+    const closeButton =
+      modal.querySelector(
+        "[data-close-modal]"
+      );
+
+    if(closeButton){
+      closeButton.focus();
+    }
+
+  }
+
+
+  function closeModal(){
+
+    if(!activeModal){
+      return;
+    }
+
+    activeModal.classList.remove(
+      "active"
+    );
+
+    activeModal.setAttribute(
+      "aria-hidden",
+      "true"
+    );
+
+    document.body.style.overflow =
+      "";
+
+    activeModal = null;
+
+  }
+
+
+  cards.forEach(function(card){
+
+    card.addEventListener(
+      "click",
+      function(){
+
+        const modalId =
+          card.getAttribute(
+            "data-modal"
+          );
+
+        if(modalId){
+          openModal(modalId);
+        }
+
+      }
+    );
+
+
+    card.addEventListener(
+      "keydown",
+      function(event){
+
+        if(
+          event.key === "Enter" ||
+          event.key === " "
+        ){
+
+          event.preventDefault();
+
+          const modalId =
+            card.getAttribute(
+              "data-modal"
+            );
+
+          if(modalId){
+            openModal(modalId);
+          }
+
+        }
+
+      }
+    );
+
+  });
+
+
+  closeButtons.forEach(
+    function(button){
+
+      button.addEventListener(
+        "click",
+        closeModal
+      );
+
+    }
+  );
+
+
+  modals.forEach(
+    function(modal){
+
+      modal.addEventListener(
+        "click",
+        function(event){
+
+          if(
+            event.target === modal
+          ){
+            closeModal();
+          }
+
+        }
+      );
+
+    }
+  );
+
+
+  document.addEventListener(
+    "keydown",
+    function(event){
+
+      if(event.key === "Escape"){
+        closeModal();
+      }
+
+    }
+  );
+
+})();
+
+</script>
+
+</body>
+</html>
